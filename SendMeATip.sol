@@ -8,7 +8,7 @@ import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
 contract SendMeATip is Ownable {
     event NewTip(address indexed tipper, string name);
 
-private address owner;
+private address owner; //unnecessary/redundant
 
     struct Tip {
         address tipper;
@@ -46,7 +46,11 @@ private address owner;
      * @dev send the entire balance stored in this contract to the owner
      */
     function withdrawTips() public {
-        require(owner().send(address(this).balance));
+        require(owner().send(address(this).balance)); // 
+send" and "transfer" are only available for objects of type "address payable", not "address //El código puede cambiarse por :
+function withdrawTips() public {
+require(payable(owner()).send(address(this).balance)
+
     }
 
 
