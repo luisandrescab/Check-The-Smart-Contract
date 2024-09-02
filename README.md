@@ -1,7 +1,8 @@
-El problema esta relacionado con la declaración de la variable "ownable" en la línea 11.
-En Solidity, no se puede declarar una variable de estado de tipo "Address" como privada. En su lugar, debe declararse en el constructor y luego usarse internamente dentro de las funciones haciendo referencia a la dirección del contrato usando la palabra clave `this` como esta: “address payable owner”
+Error: Linea 11: private address owner;
+Se ha utilizado el contrato "Ownable" de OpenZeppelin, que tiene un constructor que ya establece el propietario. Por lo tanto es innecesario y redundante definir una variable "propietaria" en el contrato
+Error: Linea 49: require(owner().send(address(this).balance));
+Aquie  "send" y "transfer" solo están disponibles para objetos de tipo "address payable", no "Address" .El error en la función “withdrawTips” donde se está intentando enviar todo el saldo del contrato al propietario usando owner().send(address(this).balance)Aqui owner() devuelve una dirección y no una dirección de pago, por lo que no puede llamar a la función send()
+El código puede cambiarse por :
+function withdrawTips() public {
+require(payable(owner()).send(address(this).balance)
 
-
-
-Error 2. (error de declaración)
-Se intenta declarar una variable o función con el mismo nombre que otra en su código. En este caso, tanto el contrato Ownable de OpenZeppelin como su propia variable "owner" están intentando definir un identificador llamado "owner".
