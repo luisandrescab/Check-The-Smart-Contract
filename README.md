@@ -1,4 +1,5 @@
 Error: Linea 11: private address owner;
+
 Se ha utilizado el contrato "Ownable" de OpenZeppelin, que tiene un constructor que ya establece el propietario. Por lo tanto es innecesario y redundante definir una variable "propietaria" en el contrato
 
 Error: Linea 49: require(owner().send(address(this).balance));
