@@ -1,2 +1,1 @@
-Por lo poco que estoy aprendiendo, en solidity la palabra privado no es un moficador de visibilidad de una variable. En este código se lo utiliza de esta forma. Lo que hice en este caso es eliminar la palabra.
-
+Por lo poco que estoy aprendiendo, en solidity la palabra privado no es un moficador de visibilidad de una variable. En este código se lo utiliza de esta forma. Lo que hice en este caso es eliminar la palabra. Pero también creo que  la propiedad es manejada por el propietario del contrato por lo que desde mi punto de vista seria redundante declararla en el código y se podría eliminar la palabra Owner tambien
